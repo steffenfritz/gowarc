@@ -23,15 +23,20 @@ eMail: steffen AT fritz DOT wtf
 package main
 
 import (
-	"fmt"
 	"log"
 )
+
+func errorcheck(e error) {
+	if e != nil {
+		log.Fatal(e)
+	}
+}
 
 func main() {
 
 	source, target, uri, err := argparse()
+	errorcheck(err)
 
-	if err != nil {
-		log.Fatal(err)
-	}
+	f, err = writer(target)
+	errorcheck(err)
 }
