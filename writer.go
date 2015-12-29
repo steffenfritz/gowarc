@@ -4,6 +4,7 @@ package main
 
 import "os"
 
+// create creates the output warc file
 func create(warcfile *string) (*os.File, error) {
 
 	f, err := os.Create(*warcfile)
@@ -12,11 +13,15 @@ func create(warcfile *string) (*os.File, error) {
 	return f, err
 }
 
+// writeInitInfoBlock writes the first block of a warc file
 func writeInitInfoBlock(warcfile *os.File) error {
 
-	return nil
+	_, err := warcfile.WriteString("WARC/1.0\r\n")
+
+	return err
 }
 
+// writeResponseBlock writes blocks for each file in sorce dir
 func writeResponseBlock(warcfile *os.File, payload []byte) error {
 
 	return nil

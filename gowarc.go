@@ -39,4 +39,9 @@ func main() {
 
 	f, err := create(target)
 	errorcheck(err)
+
+	err = writeInitInfoBlock(f)
+	errorcheck(err)
+
+	readerWriter(*source, *uri)
 }
