@@ -37,6 +37,6 @@ func main() {
 	source, target, uri, err := argparse()
 	errorcheck(err)
 
-	f, err = writer(target)
+	f, err := create(target)
 	errorcheck(err)
 }
